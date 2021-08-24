@@ -8,7 +8,7 @@ const Layout = (props) => {
         <Fragment>
             <Header/>
 
-            <Container>
+            <Container style={{'minHeight': '85vh', paddingTop: '15px', paddingBottom: '15px'}}>
                 {props.children}
             </Container>
             

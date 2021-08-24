@@ -3,14 +3,15 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: 'JetBrains Mono', monospace;
+  background-color: #bde0fe !important;
 }
 /*
 
 -> primary: #a2d2ff
--> secondary: #bde0fe
+-> secondary: #ffc8dd
 -> tertiary: #cdb4db
 -> text: #ffafcc
--> background: #ffc8dd
+-> background: #bde0fe
 -> Success: #40916c
 -> Danger: #c1121f
 -> Warning: #f8961e

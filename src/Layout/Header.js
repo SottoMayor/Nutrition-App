@@ -4,10 +4,11 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav'
 
 const Header = () => {
+    
     return (
         <header>
 
-            <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
+            <Navbar collapseOnSelect expand="md" style={{backgroundColor: '#a2d2ff'}}>
                 <Container>
                     <Navbar.Brand href="/inicio">Doutor Nutrição</Navbar.Brand>
                     
