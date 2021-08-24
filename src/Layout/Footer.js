@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Container from 'react-bootstrap/Container';
 
 const Footer = () => {
     return (
         <footer>
-            <h2>Footer!</h2>
+            <Container>
+                <h2>Footer!</h2>
+            </Container>
         </footer>
     )
 }
