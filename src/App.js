@@ -1,16 +1,13 @@
 import React from 'react';
 import Layout from './Layout/Layout';
-import Button from 'react-bootstrap/Button';
+import Card from './Components/Card';
 
 
 const App = () => {
   return (
     
     <Layout>
-      <div>
-        <h2>Does this work?</h2>
-        <Button variant="success">Primary</Button>
-      </div>
+      <Card/>
     </Layout>
   )
 }
