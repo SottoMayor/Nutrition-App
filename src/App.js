@@ -1,13 +1,13 @@
 import React from 'react';
 import Layout from './Layout/Layout';
-import Card from './Components/Card';
+import Cards from './Components/Cards';
 
 
 const App = () => {
   return (
     
     <Layout>
-      <Card/>
+      <Cards/>
     </Layout>
   )
 }
