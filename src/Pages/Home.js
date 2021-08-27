@@ -1,6 +1,6 @@
 import React from 'react'
 import Cards from '../Components/Cards';
-import Container from 'react-bootstrap/Container'
+import Container from 'react-bootstrap/Container';
 
 const Home = () => {
     return (

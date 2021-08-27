@@ -8,7 +8,7 @@ import Alert from 'react-bootstrap/Alert'
 const Cards = () => {
 
     const [infos, setInfos] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [message, setMessage] = useState('');
 
