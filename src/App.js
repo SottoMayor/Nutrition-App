@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from './Layout/Layout';
 import Home from './Pages/Home';
+import NotFound from './Pages/NotFound';
 import Container from 'react-bootstrap/Container'
 
 import { Route, Switch } from 'react-router';
@@ -27,7 +28,7 @@ const App = () => {
           </Container>
         </Route>
         <Route path="/">
-          <h1>Page not found!</h1>
+          <NotFound/>
         </Route>
       </Switch>
     </Layout>
