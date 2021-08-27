@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from './Layout/Layout';
-import Cards from './Components/Cards';
+import Home from './Pages/Home';
 
 import { Route, Switch } from 'react-router';
 
@@ -11,7 +11,7 @@ const App = () => {
     <Layout>
       <Switch>
         <Route path="/" exact>
-          <h1>Home</h1>
+          <Home/>
         </Route>
         <Route path="/detalhes/:postId">
           <h1>Post Details</h1>
