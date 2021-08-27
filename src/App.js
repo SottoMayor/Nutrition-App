@@ -2,12 +2,27 @@ import React from 'react';
 import Layout from './Layout/Layout';
 import Cards from './Components/Cards';
 
+import { Route, Switch } from 'react-router';
+
 
 const App = () => {
   return (
     
     <Layout>
-      <Cards/>
+      <Switch>
+        <Route path="/" exact>
+          <h1>Home</h1>
+        </Route>
+        <Route path="/detalhes/:postId">
+          <h1>Post Details</h1>
+        </Route>
+        <Route path="/postagens-salvas">
+          <h1>List Posts</h1>
+        </Route>
+        <Route path="/">
+          <h1>Page not found!</h1>
+        </Route>
+      </Switch>
     </Layout>
   )
 }
