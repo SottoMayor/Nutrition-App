@@ -5,9 +5,15 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Alert from 'react-bootstrap/Alert'
 
-const Cards = () => {
+import { useDispatch, useSelector } from 'react-redux';
+import { postsActions } from '../store/index';
 
-    const [infos, setInfos] = useState([]);
+const Cards = () => {
+    //console.log(posts);
+    
+    const posts = useSelector(state => state.posts);
+    const dispatch = useDispatch();
+    
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [message, setMessage] = useState('');
@@ -23,7 +29,7 @@ const Cards = () => {
 
             const data = await response.json();
 
-            setInfos(data);
+            dispatch(postsActions.addPosts(data));
         }catch(err){
             setMessage(err.message);
             setError(true);
@@ -31,7 +37,7 @@ const Cards = () => {
 
         setLoading(false);
         
-    }, [])
+    }, [dispatch])
 
     useEffect(() => {
         fetchData()
@@ -56,7 +62,7 @@ const Cards = () => {
                 </Modal>
             )}
 
-            {!loading && infos.length === 0 && (
+            {!loading && posts.length === 0 && (
                 <Alert variant='warning'>
                     <Alert.Heading>Opa! Você não possui postagens cadastradas.</Alert.Heading>
                     <p>
@@ -67,7 +73,7 @@ const Cards = () => {
             )}
 
             {
-                !error && infos.map( info => <Card {...info} key={info.id}/> )
+                !error && posts.map( info => <Card {...info} key={info.id}/> )
             }
         </section>
     )

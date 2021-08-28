@@ -4,8 +4,8 @@ const postsSlice = createSlice({
     name:'posts',
     initialState: {posts: []},
     reducers:{
-        addPosts(state, payload){
-            state.posts = payload
+        addPosts(state, data){
+            state.posts = data.payload
         }
     }
 })
