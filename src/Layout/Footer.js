@@ -6,7 +6,7 @@ const Footer = () => {
         <footer style={{backgroundColor: '#ffc8dd', paddingTop: '5px', paddingBottom: '5px'}}>
             <Container className="d-flex justify-content-between align-items-center">
 
-                <p>Some dummy message</p>
+                <p>Qualidade em nutrição 💪👊</p>
 
                 <h3>React App</h3>
 

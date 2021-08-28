@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from './Layout/Layout';
 import Home from './Pages/Home';
 import NotFound from './Pages/NotFound';
+import PostDetails from './Pages/PostDetails';
 import Container from 'react-bootstrap/Container'
 
 import { Route, Switch } from 'react-router';
@@ -16,7 +17,7 @@ const App = () => {
           <Home/>
         </Route>
         <Route path="/detalhes/:postId">
-          <h1>Post Details</h1>
+          <PostDetails />
         </Route>
         <Route path="/postagens-salvas">
           <h1>List Posts</h1>
