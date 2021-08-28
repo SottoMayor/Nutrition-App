@@ -3,6 +3,7 @@ import Layout from './Layout/Layout';
 import Home from './Pages/Home';
 import NotFound from './Pages/NotFound';
 import PostDetails from './Pages/PostDetails';
+import ListPosts from './Pages/ListPosts';
 import Container from 'react-bootstrap/Container'
 
 import { Route, Switch } from 'react-router';
@@ -20,7 +21,7 @@ const App = () => {
           <PostDetails />
         </Route>
         <Route path="/postagens-salvas">
-          <h1>List Posts</h1>
+          <ListPosts />
         </Route>
         <Route path="/login">
           <Container style={{"marginTop": "30px", 'textAlign': 'center'}}>
