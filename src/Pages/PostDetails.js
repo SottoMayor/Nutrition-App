@@ -69,10 +69,10 @@ const PostDetails = () => {
             <Row style={{'marginTop': '7%'}}>
                 <Col>
                     <figure className="d-flex justify-content-center">
-                        <img style={{'maxWidth': '500px', 'maxHeight': '500px'}} src={loadedPost.capa} alt={loadedPost.titulo}/>
+                        <img style={{'width': '100%', 'maxHeight': '500px'}} src={loadedPost.capa} alt={loadedPost.titulo}/>
                     </figure>
                 </Col>
-                <Col>
+                <Col lg className="d-flex justify-content-center align-items-center flex-column">
                     <Row>
                         <Col>
                             <Row>

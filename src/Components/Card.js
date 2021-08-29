@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const CardComponent = (props) => {
 
     const deletePostHandler = () => {
-        console.log('Delete Post from the localStorage!')
+        props.onDeletePost(props.id);
     }
 
     return (
@@ -21,7 +21,7 @@ const CardComponent = (props) => {
 
                 {!props.listPosts && <Button as={Link} to={`/detalhes/${props.id}`} variant='warning' className="text-white">Ver post completo</Button>}
 
-                {props.listPosts && <Button as={Link} variant='danger' className="text-white" onClick={deletePostHandler}>Deletar post</Button>}
+                {props.listPosts && <Button variant='danger' className="text-white" onClick={deletePostHandler}>Deletar post</Button>}
             </Card.Body>
         </Card>
     )
