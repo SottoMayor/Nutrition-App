@@ -3,6 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Accordion from 'react-bootstrap/Accordion';
 import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 import { useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
@@ -13,24 +14,57 @@ const PostDetails = () => {
     const history = useHistory();
     const { postId } = useParams();
 
-    const [loadedPost, setLoadedPost] = useState({})
+    const [loadedPost, setLoadedPost] = useState({});
+    const [message, setMessage] = useState('');
+    const [error, setError] = useState(false);
+    const [show, setShow] = useState(false);
 
     useEffect(() => {
+        setError(false)
         const foundPost = posts.find(post => post.id.toString() === postId.toString());
         if(!foundPost) {
             history.replace('/');
         }
-        console.log(foundPost);
+
         setLoadedPost(foundPost);
     }, [posts, history, postId]);
 
     const savePostHandler = () => {
-        console.log('Save this post in local storage');
+        const getPosts = localStorage.getItem('posts');
+        const savedPosts = JSON.parse(getPosts) || [];
+
+        const foundPost = savedPosts.find(post => post.id.toString() === postId.toString());
+        if(!foundPost){
+            savedPosts.push(loadedPost);
+            localStorage.setItem('posts', JSON.stringify(savedPosts));
+
+            setMessage(`O post foi adicionado aos seus favoritos!`);
+            setShow(true);
+            setError(false);
+            return;
+        }
+        setMessage(`O post  já está na sua lista de favoritos!`);
+        setError(true);
+        setShow(true);
     }
 
     return(
         <section style={{textAlign: 'center'}}>
             <h2 style={{ marginBottom: '20px'}}>Mais detalhes da publicação</h2>
+
+            {show && (
+                <Modal show={show} onHide={() => setShow(false)}>
+                    <Modal.Header closeButton>
+                    <Modal.Title>{error ? 'Ocorreu um ERRO!' : 'Tudo CERTO!'}</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>{message}</Modal.Body>
+                    <Modal.Footer>
+                    <Button variant={error ? 'danger' : 'success'} onClick={() => setShow(false)}>
+                        Entendido
+                    </Button>
+                    </Modal.Footer>
+                </Modal>
+            )}
 
             <Row style={{'marginTop': '7%'}}>
                 <Col>
