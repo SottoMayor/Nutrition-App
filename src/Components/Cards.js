@@ -12,15 +12,19 @@ const Cards = () => {
     //console.log(posts);
     
     const posts = useSelector(state => state.posts);
+    const loadedPosts = useSelector(state => state.loaded);
     const dispatch = useDispatch();
     
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
     const [message, setMessage] = useState('');
 
     const fetchData = useCallback( async () => {
         setError(false);
-        setLoading(true);
+        if(!loadedPosts){
+            setLoading(true);
+        }
+        
         try{
             const response = await fetch('https://sujeitoprogramador.com/rn-api/?api=posts/');
             if(!response.ok){
@@ -30,6 +34,7 @@ const Cards = () => {
             const data = await response.json();
 
             dispatch(postsActions.addPosts(data));
+            dispatch(postsActions.loadedHandler());
         }catch(err){
             setMessage(err.message);
             setError(true);
@@ -37,7 +42,7 @@ const Cards = () => {
 
         setLoading(false);
         
-    }, [dispatch])
+    }, [dispatch, loadedPosts]);
 
     useEffect(() => {
         fetchData()
