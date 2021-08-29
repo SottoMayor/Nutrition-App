@@ -1,12 +1,9 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card'
+import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 
 const CardComponent = (props) => {
-
-    const moreDetailsHandler = () => {
-        console.log('Capture de ID here! ', props.id)
-    }
 
     const deletePostHandler = () => {
         console.log('Delete Post from the localStorage!')
@@ -22,9 +19,9 @@ const CardComponent = (props) => {
                     {props.subtitulo}
                 </Card.Text>
 
-                {!props.listPosts && <Button variant='warning' className="text-white" onClick={moreDetailsHandler}>Ver post completo</Button>}
+                {!props.listPosts && <Button as={Link} to={`/detalhes/${props.id}`} variant='warning' className="text-white">Ver post completo</Button>}
 
-                {props.listPosts && <Button variant='danger' className="text-white" onClick={deletePostHandler}>Deletar post</Button>}
+                {props.listPosts && <Button as={Link} variant='danger' className="text-white" onClick={deletePostHandler}>Deletar post</Button>}
             </Card.Body>
         </Card>
     )
